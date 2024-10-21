@@ -7,7 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:webview/WebView.dart';
+import 'package:webview/Alibaba.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {

@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
-class MyWebsite extends StatefulWidget {
-  const MyWebsite({Key? key}) : super(key: key);
+class Ebay extends StatefulWidget {
+  const Ebay({Key? key}) : super(key: key);
 
   @override
-  State<MyWebsite> createState() => _MyWebsiteState();
+  State<Ebay> createState() => _EbayState();
 }
 
-class _MyWebsiteState extends State<MyWebsite> {
+class _EbayState extends State<Ebay> {
   double _progress = 0;
   late InAppWebViewController inAppWebViewController;
 
   @override
   Widget build(BuildContext context) {
-    WebUri url = WebUri("https://www.shopify.com");
+    WebUri url = WebUri("https://www.ebay.com");
 
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Welcome To Shopify',
+          'Welcome To Ebay',
           style: TextStyle(color: Colors.black),
         ),
         backgroundColor: Colors.transparent,
