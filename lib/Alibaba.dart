@@ -19,7 +19,7 @@ class _AlibabaState extends State<Alibaba> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Welcome To Shopify',
+          'Welcome To Alibaba',
           style: TextStyle(color: Colors.black),
         ),
         backgroundColor: Colors.transparent,
