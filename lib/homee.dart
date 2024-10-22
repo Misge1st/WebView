@@ -16,180 +16,106 @@ class _ShoppingHubState extends State<ShoppingHub> {
   @override
   Widget build(BuildContext context) => Scaffold(
         body: Container(
-          color: Colors.white70,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.deepPurple, Colors.purpleAccent],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
           child: Column(
             children: [
-              const SizedBox(
-                height: 40,
-              ),
+              const SizedBox(height: 60),
               const Row(
                 children: [
-                  SizedBox(
-                    width: 105,
-                  ),
+                  SizedBox(width: 105),
                   Text(
-                    'SHOPPING\nHUB\n',
+                    'All-in-One\nCart\n',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold,
-                        fontStyle: FontStyle.italic),
+                      fontSize: 45,
+                      fontWeight: FontWeight.bold,
+                      fontStyle: FontStyle.italic,
+                      color: Colors.white,
+                      shadows: [
+                        Shadow(
+                          color: Colors.black54,
+                          offset: Offset(3, 3),
+                          blurRadius: 10,
+                        ),
+                      ],
+                    ),
                   )
                 ],
               ),
-              Row(
-                children: [
-                  const SizedBox(width: 45),
-                  InkWell(
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const Shopify()));
-                      // Navigate to profile screen
-                    },
-                    child: const CircleAvatar(
-                      radius: 35,
-                      backgroundImage: AssetImage('lib/images/images.png'),
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 60,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const Allbirds()));
-                      // Navigate to profile screen
-                    },
-                    child: const CircleAvatar(
-                      radius: 35,
-                      backgroundImage: AssetImage('lib/images/Untitledd.jpg'),
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 60,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const Amazon()));
-                      // Navigate to profile screen
-                    },
-                    child: const CircleAvatar(
-                      radius: 35,
-                      backgroundImage: AssetImage('lib/images/Untitled4.png'),
-                    ),
-                  ),
-                ],
+              const SizedBox(height: 20),
+              _buildShopRow(
+                context,
+                'lib/images/images.png',
+                const Shopify(),
+                'lib/images/Untitledd.jpg',
+                const Allbirds(),
+                'lib/images/Untitled4.png',
+                const Amazon(),
               ),
-              const SizedBox(
-                height: 50,
+              const SizedBox(height: 50),
+              _buildShopRow(
+                context,
+                'lib/images/Untitled4e.png',
+                const Ebay(),
+                'lib/images/Untitld.jpg',
+                const Alibaba(),
+                'lib/images/Untitledsf.jpg',
+                const Amazon(),
               ),
-              Row(
-                children: [
-                  const SizedBox(width: 45),
-                  InkWell(
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const Ebay()));
-                      // Navigate to profile screen
-                    },
-                    child: const CircleAvatar(
-                      radius: 35,
-                      backgroundImage: AssetImage('lib/images/Untitled4e.png'),
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 60,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const Alibaba()));
-                      // Navigate to profile screen
-                    },
-                    child: const CircleAvatar(
-                      radius: 35,
-                      backgroundImage: AssetImage('lib/images/Untitld.jpg'),
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 60,
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 50,
-              ),
-              Row(
-                children: [
-                  const SizedBox(width: 45),
-                  InkWell(
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const Amazon()));
-                      // Navigate to profile screen
-                    },
-                    child: const CircleAvatar(
-                      radius: 35,
-                      backgroundImage: AssetImage('lib/images/Untitledsf.jpg'),
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 60,
-                  ),
-                  const SizedBox(
-                    width: 60,
-                  ),
-                ],
+              const SizedBox(height: 50),
+              _buildShopRow(
+                context,
+                'lib/images/Untitledsf.jpg',
+                const Amazon(),
+                null,
+                null,
+                null,
+                null,
               ),
             ],
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.black,
+          backgroundColor: Colors.pinkAccent,
           tooltip: 'Add',
           onPressed: () {
             // Handle floating action button tap
           },
-          child: const Icon(Icons.add),
+          child: const Icon(Icons.add, color: Colors.white),
         ),
         bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: Colors.deepPurple,
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.grey[400],
+          selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
           items: const [
             BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home_outlined,
-                size: 30,
-              ),
+              icon: Icon(Icons.home_outlined, size: 30),
               label: 'Home',
               backgroundColor: Colors.orangeAccent,
             ),
             BottomNavigationBarItem(
-              icon: Icon(
-                Icons.category_sharp,
-                size: 30,
-              ),
+              icon: Icon(Icons.category_sharp, size: 30),
               label: 'Category',
             ),
             BottomNavigationBarItem(
-              icon: Icon(
-                Icons.add_circle_outline_outlined,
-                size: 30,
-              ),
+              icon: Icon(Icons.add_circle_outline_outlined, size: 30),
               label: 'Add',
             ),
             BottomNavigationBarItem(
-              icon: Icon(
-                Icons.search,
-                size: 30,
-              ),
+              icon: Icon(Icons.search, size: 30),
               label: 'Search',
               backgroundColor: Colors.orangeAccent,
             ),
             BottomNavigationBarItem(
-              icon: Icon(
-                Icons.person_outlined,
-                size: 30,
-              ),
+              icon: Icon(Icons.person_outlined, size: 30),
               label: 'Profile',
             ),
           ],
@@ -216,4 +142,35 @@ class _ShoppingHubState extends State<ShoppingHub> {
           },
         ),
       );
+
+  Widget _buildShopRow(BuildContext context, String image1, Widget page1,
+      String? image2, Widget? page2, String? image3, Widget? page3) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        _buildShopIcon(context, image1, page1),
+        const SizedBox(width: 30),
+        image2 != null ? _buildShopIcon(context, image2, page2!) : Container(),
+        const SizedBox(width: 30),
+        image3 != null ? _buildShopIcon(context, image3, page3!) : Container(),
+      ],
+    );
+  }
+
+  Widget _buildShopIcon(BuildContext context, String image, Widget page) {
+    return InkWell(
+      onTap: () {
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => page));
+      },
+      child: CircleAvatar(
+        radius: 40,
+        backgroundColor: Colors.white,
+        child: CircleAvatar(
+          radius: 38,
+          backgroundImage: AssetImage(image),
+        ),
+      ),
+    );
+  }
 }
